@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display:700i" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_index.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <script src="https://kit.fontawesome.com/5bdcb5c5a0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+</head>
+<body style="background-color: #ffffff ;">
+    <!-- navbar -->
+    <nav>
+      <div class="logo">
+        <h3><a class="logo-name">Jaanvi Mutreja</a></h3>
+      </div>
+    </nav>
+    <!-- navbar --> 
+	<form action="signup.php" method="POST">
+        <div class="container">
+            <h1>Sign Up</h1>
+        <div class="box">
+            <i class="fa fa-envelope"></i>
+            <input type="email" name="email" id="email" placeholder="Enter Your Email" required>
+        </div>
+        <div class="box">
+            <i class="fa fa-envelope"></i>
+            <input type="text" name="name" id="name" placeholder="Enter Your Name" required>
+        </div>
+        <div class="box">
+            <i class="fa fa-envelope"></i>
+            <input type="text" name="phno" id="phno" placeholder="Enter Your PNo" required>
+        </div>
+        <div class="box">
+            <i class="fa fa-key"></i>
+            <input type="password" name="password" id="password" placeholder="Enter Your Password" required>
+        </div>
+        <div class="box">
+            <i class="fa fa-key"></i>
+            <input type="password" name="cpassword" id="cpassword" placeholder="Re-Enter Your Pass" required>
+        </div>
+        <input type="submit" class="btn" id="signup" name="submit" value="Submit"/>
+        <button class="btn" onclick="location.href='loginew.php'">Log In</button></a>
+        </div>
+    </form>
+    <script type="text/javascript">
+        $(function(){
+            $('#signup').click(function(e){
+                var valid=this.form.checkValidity();
+                if(valid){
+                    var email=$('#email').val();
+                    var name=$('#name').val();
+                    var phno=$('#phno').val();
+                    var pswd=$('#password').val();
+                    var cpswd=$('#cpassword').val();
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: "process.php",
+                        data: {email: email, name: name, phno: phno,pswd: pswd, cpswd: cpswd},
+                        success: function(data){
+                            Swal.fire({
+                                'title': 'SignUp Successfull!!',
+                                'text': data,
+                                'type': 'success'
+                            });
+                        },
+                        error: function(data){
+                            Swal.fire({
+                                'title': 'Errors!!',
+                                'text': 'There were errors while saving the data..',
+                                'type': 'error'
+                            });
+                        }
+                    });
+                }
+                else{
+                }
+            });
+        });
+    </script>
+</body>
+</html>    
