@@ -1,11 +1,3 @@
-<?php
-    session_start();
-	if(isset($_SESSION['userlogin'])){
-        header("Location: jm.php");
-    }
-?>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +24,7 @@
       </div>
     </nav>
     <!-- navbar --> 
-    <form action="loginew.php" method="POST">
+    <form action="loginew.html" method="POST">
     <div class="container">
         <h1>Log In</h1>
         <div class="box">
@@ -44,7 +36,7 @@
             <input type="password" name="password" id="password" placeholder="Enter Your Pass" required>
         </div>
         <input type="submit" name="submit" class="btn" id="login" value="Log In"/>    
-        <button class="btn" onclick="location.href='signup.php'">Sign Up</button>
+        <button class="btn" onclick="location.href='signup.html'">Sign Up</button>
     </div>
     </form>
     <script type="text/javascript">
@@ -61,7 +53,7 @@
                         data: {email: email, pswd: pswd},
                         success: function(data){
                             if($.trim(data)==="Success"){
-                                setTimeout('window.location.href="jm.php"',2000);
+                                setTimeout('window.location.href="jm.html"',2000);
                             }
                         },
                         error: function(data){
