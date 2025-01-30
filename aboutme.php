@@ -1,22 +1,3 @@
-<?php
-    session_start();
-	  if(!isset($_SESSION['userlogin'])){
-      header("Location: loginew.php");
-    }
-    if(isset($_GET['logout'])){
-        $_SESSION = array();
-        if (ini_get("session.use_cookies")) {
-            $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
-            $params["path"], $params["domain"],
-            $params["secure"], $params["httponly"]
-            );
-        }
-        session_destroy();
-        header("Location: loginew.php");
-    }
-?>
-<!DOCTYPE html>
 <html lang="en">
 <head> 
     <meta charset="UTF-8">
@@ -36,15 +17,15 @@
   <!-- navbar -->
     <nav>
       <div class="logo">
-        <h3><a href="jm.php" class="logo-name">Jaanvi Mutreja</a></h3>
+        <h3><a href="jm.html" class="logo-name">Jaanvi Mutreja</a></h3>
       </div>
 
       <ul class="nav-links">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="products.php">Products</a></li>
-        <li><a href="aboutme.php">About Jaanvi</a></li>
-        <li><a href="contactnew.php">ContactUs</a></li>
-        <li><a href="logout.php?logout=true" id="logout">Logout</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="aboutme.html">About Jaanvi</a></li>
+        <li><a href="contactnew.html">ContactUs</a></li>
+        <li><a href="logout.html?logout=true" id="logout">Logout</a></li>
       </ul>
       <div class="burger">
         <div class="line1"></div>
@@ -139,7 +120,7 @@
     <!-- FOOTER -->
     <div class="footer-container">
       <div class="footer-1">
-        <a href="index.php"><h2>Jaanvi Mutreja🥂</h2></a>
+        <a href="index.html"><h2>Jaanvi Mutreja🥂</h2></a>
         <br>
         <p><b>ONLINE SHOWCASE</b></p>
           <h6>
@@ -165,11 +146,11 @@
         <p><b>To book Appointments</b> use</p>
           <h6>
           the 
-        <a id="ref" href="contactnew.php">Contact Us</a> page
+        <a id="ref" href="contactnew.html">Contact Us</a> page
         </h6>
         <p><b>For Any Issues</b> contact creator of website</p>
           <h6>
-            - siddhantkhemlani@gmail.com
+            - gerramausam23@gmail.com
           </h6>
         <br><br>
       </div>
